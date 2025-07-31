@@ -1,0 +1,85 @@
+#topWrapper {
+  background: linear-gradient(100deg, var(--blue-color) 0%, var(--blue-color) 50%, var(--red-color) 100%);
+}
+
+#topWrapper .slogan {
+  background: linear-gradient(90deg, var(--green-color), var(--blue-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+  background-size: 200% 200%;
+  
+  /* Hiệu ứng hiện từ trái sang phải */
+  mask-image: linear-gradient(to right, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
+  mask-size: 200% 100%;
+  -webkit-mask-size: 200% 100%;
+  animation:
+    revealText 2s ease-in-out forwards,
+    blingEffect 1s ease-in-out 2.2s forwards;
+}
+
+/* Social link styles */
+.logo-wrapper a.facebook-link {
+  color: var(--white-color);
+}
+
+.logo-wrapper a.tiktok-link {
+  color: var(--black-color);
+}
+
+.logo-wrapper a.youtube-link {
+  color: var(--red-color);
+}
+
+.logo-wrapper a {
+  box-shadow: rgba(0, 0, 0, 0.8);
+}
+
+.logo-wrapper a:hover {
+  opacity: 0.7;
+}
+
+/* Hiệu ứng di chuyển gradient (nếu dùng) */
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/* Hiệu ứng xuất hiện từ trái sang phải */
+@keyframes revealText {
+  0% {
+    mask-position: 200% 0%;
+    -webkit-mask-position: 200% 0%;
+  }
+  100% {
+    mask-position: 0% 0%;
+    -webkit-mask-position: 0% 0%;
+  }
+}
+
+/* Hiệu ứng bling */
+@keyframes blingEffect {
+  0% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  30% {
+    filter: brightness(2.5);
+    transform: scale(1.15) rotate(2deg);
+  }
+  60% {
+    filter: brightness(1.2);
+    transform: scale(0.95) rotate(-1deg);
+  }
+  100% {
+    filter: brightness(1);
+    transform: scale(1) rotate(0deg);
+  }
+}
