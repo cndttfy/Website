@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./elements/Button";
+import Button from "./Button";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaPaperPlane } from "react-icons/fa";
 
 const Contact: React.FC = () => {

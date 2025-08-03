@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../components/elements/Button";
-import Popup from "../components/elements/Popup";
+import Button from "../components/Button";
+import Popup from "../components/Popup";
 
 export default function Test() {
   const [open, setOpen] = useState(false);

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/css/Partner.css"
+import "../assets/css/Partner.css"
 
 const partners = [
   { name: "Đối tác A", logo: "/images/partner-a.png", link: "#" },

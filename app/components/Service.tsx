@@ -22,7 +22,7 @@ import {
   FaBriefcase,
   FaBoxOpen,
 } from "react-icons/fa";
-import "../../assets/css/Service.css";
+import "../assets/css/Service.css";
 import Button from "./Button";
 
 const services = [

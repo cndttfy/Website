@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Header from "../components/elements/Header";
-import Service from "../components/elements/Service";
-import Project from "../components/elements/Project";
-import Partner from "../components/elements/Partner";
-import About from "../components/elements/About";
-import Contact from "../components/elements/Contact";
-import Footer from "../components/elements/Footer";
-import AssistantWidget from "../components/elements/AssistantWidget";
+import Header from "../components/Header";
+import Service from "../components/Service";
+import Project from "../components/Project";
+import Partner from "../components/Partner";
+import About from "../components/About";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
+import AssistantWidget from "../components/AssistantWidget";
 
 export default function Home() {
   return (

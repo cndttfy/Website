@@ -30,7 +30,7 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 import Button from "./Button";
-import "../../assets/css/header.css";
+import "../assets/css/Header.css";
 import {
   Bars3Icon,
   XMarkIcon,
