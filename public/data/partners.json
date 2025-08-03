@@ -1,0 +1,98 @@
+[
+  {
+    "id": "partner001",
+    "name": "Viettel",
+    "logo_url": "/images/partners/viettel-logo.png",
+    "website": "https://viettel.vn",
+    "description": "Tập đoàn viễn thông và công nghệ hàng đầu tại Việt Nam.",
+    "location": "Hà Nội, Việt Nam",
+    "industry": "Viễn thông & Công nghệ",
+    "start_year": 2020,
+    "projects": ["Chuyển đổi số giáo dục", "Hạ tầng mạng trường học"],
+    "status": "active"
+  },
+  {
+    "id": "partner002",
+    "name": "Mắt Thần",
+    "logo_url": "/images/partners/matthan-logo.png",
+    "website": "https://matthan.vn",
+    "description": "Đơn vị chuyên cung cấp giải pháp giám sát thông minh.",
+    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "industry": "AI & Camera Giám sát",
+    "start_year": 2021,
+    "projects": ["Giám sát lớp học thông minh"],
+    "status": "active"
+  },
+  {
+    "id": "partner003",
+    "name": "Faza",
+    "logo_url": "/images/partners/faza-logo.png",
+    "website": "https://faza.vn",
+    "description": "Công ty công nghệ giáo dục chuyên phát triển nền tảng học tập.",
+    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "industry": "EdTech",
+    "start_year": 2022,
+    "projects": ["Nền tảng dạy học trực tuyến", "Faza LMS"],
+    "status": "active"
+  },
+  {
+    "id": "partner004",
+    "name": "EDS Smart",
+    "logo_url": "/images/partners/eds-logo.png",
+    "website": "https://edssmart.vn",
+    "description": "Cung cấp thiết bị giáo dục thông minh và hệ thống quản lý trường học.",
+    "location": "Việt Nam",
+    "industry": "Thiết bị giáo dục thông minh",
+    "start_year": 2023,
+    "projects": ["Lớp học thông minh", "Cảm biến theo dõi học sinh"],
+    "status": "active"
+  },
+  {
+    "id": "partner005",
+    "name": "InClass",
+    "logo_url": "/images/partners/inclass-logo.png",
+    "website": "https://inclass.vn",
+    "description": "Nền tảng học trực tuyến hỗ trợ tương tác thời gian thực.",
+    "location": "Việt Nam",
+    "industry": "EdTech",
+    "start_year": 2021,
+    "projects": ["Học tập tương tác trực tuyến", "InClass Live"],
+    "status": "active"
+  },
+  {
+    "id": "partner006",
+    "name": "Nhật Tiến Chung",
+    "logo_url": "/images/partners/ntc-logo.png",
+    "website": "https://nhattienchung.vn",
+    "description": "Nhà cung cấp thiết bị và giải pháp CNTT hàng đầu.",
+    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "industry": "Thiết bị CNTT",
+    "start_year": 2019,
+    "projects": ["Cung cấp thiết bị trường học", "Tư vấn giải pháp CNTT"],
+    "status": "active"
+  },
+  {
+    "id": "partner007",
+    "name": "FACZA",
+    "logo_url": "/images/partners/facza-logo.png",
+    "website": "https://facza.vn",
+    "description": "Giải pháp quản lý học sinh và thiết bị điện tử trong lớp học.",
+    "location": "Việt Nam",
+    "industry": "Quản lý thiết bị giáo dục",
+    "start_year": 2022,
+    "projects": ["SmartClass Control", "Hệ thống theo dõi học sinh"],
+    "status": "active"
+  },
+  {
+    "id": "partner008",
+    "name": "MyPortal",
+    "logo_url": "/images/partners/myportal-logo.png",
+    "website": "https://myportal.vn",
+    "description": "Cổng thông tin điện tử dành cho trường học và cơ quan quản lý.",
+    "location": "Việt Nam",
+    "industry": "Giải pháp phần mềm",
+    "start_year": 2021,
+    "projects": ["Cổng thông tin học sinh", "Quản lý thông báo và tài liệu"],
+    "status": "active"
+  }
+]

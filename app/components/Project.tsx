@@ -1,44 +1,27 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 
-const projects = [
-  {
-    name: "Website mỹ phẩm",
-    description: "Trang web bán mỹ phẩm đẹp, hiện đại.",
-    image: "/images/mypham.jpg",
-  },
-  {
-    name: "Game Lắc Chuông Vàng",
-    description: "Trò chơi tương tác cho học sinh.",
-    image: "/images/game.jpg",
-  },
-  {
-    name: "Ứng dụng quản lý kho",
-    description: "Phần mềm quản lý hàng hóa, tồn kho.",
-    image: "/images/kho.jpg",
-  },
-  {
-    name: "Landing page giới thiệu dịch vụ",
-    description: "Trang giới thiệu sản phẩm/dịch vụ đẹp mắt.",
-    image: "/images/landing.jpg",
-  },
-  {
-    name: "Hệ thống khảo sát trực tuyến",
-    description: "Tạo và quản lý khảo sát nhanh chóng.",
-    image: "/images/khaosat.jpg",
-  },
-  {
-    name: "App lịch học sinh viên",
-    description: "Quản lý lịch học, đăng ký học phần.",
-    image: "/images/schedule.jpg",
-  },
-];
+interface ProjectItem {
+  name: string;
+  description: string;
+  image: string;
+}
 
 const itemsPerPage = 3;
 
 const Project: React.FC = () => {
+  const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [page, setPage] = useState(0);
   const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    fetch("/data/projects.json")
+      .then((res) => res.json())
+      .then((data) => setProjects(data))
+      .catch((err) => console.error("Lỗi khi tải project:", err));
+  }, []);
 
   const totalPages = Math.ceil(projects.length / itemsPerPage);
 
@@ -94,7 +77,7 @@ const Project: React.FC = () => {
       </div>
 
       {/* Nút chuyển trang */}
-      {!showAll && (
+      {!showAll && totalPages > 1 && (
         <div className="flex justify-center items-center gap-4 mt-6">
           <Button onClick={handlePrev} disabled={page === 0}>
             ←

@@ -19,6 +19,7 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   background-color: var(--white-color);
 
   /* @media (prefers-color-scheme: dark) {

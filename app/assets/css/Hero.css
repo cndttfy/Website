@@ -1,0 +1,9 @@
+#Hero {
+  height: 70vh;
+  background: linear-gradient(to right, var(--blue-color), var(--red-color));
+}
+
+#Hero img {
+  box-shadow: 0 4px 10px var(--blue-color);
+}
+

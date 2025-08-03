@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
           font-size: 18px;
           background: linear-gradient(to bottom, var(--lightblue-color), var(--blue-color));
           color: var(--white-color);
-          padding: 0.8em 1.2em;
+          padding: 0.6em 1em;
           display: flex;
           align-items: center;
           justify-content: center;

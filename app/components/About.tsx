@@ -2,16 +2,16 @@ import { FaRibbon, FaSuitcase, FaUsers, FaCheckCircle } from "react-icons/fa";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-16">
+    <section id="About" className="py-16">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Cột trái - Giới thiệu */}
         <div>
           <h1 className="text-3xl font-bold mb-4">Về CKXDPHP</h1>
           <p className="text-gray-700 text-base leading-relaxed mb-6">
-            Với hơn 15 năm kinh nghiệm trong lĩnh vực xây dựng và cơ khí,
-            CKXDPHP đã trở thành đối tác tin cậy của nhiều doanh nghiệp lớn.
-            Chúng tôi cam kết mang đến những giải pháp tối ưu, chất lượng cao
-            với chi phí hợp lý.
+            TFY cam kết cung cấp giải pháp công nghệ sáng tạo, linh hoạt và hiệu
+            quả, giúp cá nhân và doanh nghiệp nâng cao hiệu suất và năng lực
+            cạnh tranh. Đồng thời, chúng tôi đào tạo nguồn nhân lực chất lượng
+            cao thông qua các khóa học lập trình, kỹ năng số và chuyển đổi số.
           </p>
 
           {/* Thống kê */}
@@ -45,19 +45,31 @@ const About: React.FC = () => {
           <h3 className="text-xl font-bold mb-6">Cam kết chất lượng</h3>
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
-              <FaCheckCircle style={{ color: "var(--green-color)" }} className="mt-1" />
+              <FaCheckCircle
+                style={{ color: "var(--green-color)" }}
+                className="mt-1"
+              />
               Thiết kế theo tiêu chuẩn quốc tế
             </li>
             <li className="flex items-start gap-3">
-              <FaCheckCircle style={{ color: "var(--green-color)" }} className="mt-1" />
+              <FaCheckCircle
+                style={{ color: "var(--green-color)" }}
+                className="mt-1"
+              />
               Thi công đúng tiến độ cam kết
             </li>
             <li className="flex items-start gap-3">
-              <FaCheckCircle style={{ color: "var(--green-color)" }} className="mt-1" />
+              <FaCheckCircle
+                style={{ color: "var(--green-color)" }}
+                className="mt-1"
+              />
               Bảo hành dài hạn
             </li>
             <li className="flex items-start gap-3">
-              <FaCheckCircle style={{ color: "var(--green-color)" }} className="mt-1" />
+              <FaCheckCircle
+                style={{ color: "var(--green-color)" }}
+                className="mt-1"
+              />
               Hỗ trợ kỹ thuật 24/7
             </li>
           </ul>

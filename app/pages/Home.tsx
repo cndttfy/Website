@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "../components/Header";
+import Hero from "../components/Hero";
 import Service from "../components/Service";
+import News from "../components/News";
 import Project from "../components/Project";
 import Partner from "../components/Partner";
 import About from "../components/About";
@@ -12,7 +14,9 @@ export default function Home() {
   return (
     <div>
       <Header />
+      <Hero />
       <Service />
+      <News />
       <Project />
       <Partner />
       <About />

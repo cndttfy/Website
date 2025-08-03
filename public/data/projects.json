@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Website mỹ phẩm",
+    "description": "Trang web bán mỹ phẩm đẹp, hiện đại.",
+    "image": "/banner.jpg"
+  },
+  {
+    "name": "Game Lắc Chuông Vàng",
+    "description": "Trò chơi tương tác cho học sinh.",
+    "image": "/banner.jpg"
+  },
+  {
+    "name": "Ứng dụng quản lý kho",
+    "description": "Phần mềm quản lý hàng hóa, tồn kho.",
+    "image": "/banner.jpg"
+  },
+  {
+    "name": "Landing page giới thiệu dịch vụ",
+    "description": "Trang giới thiệu sản phẩm/dịch vụ đẹp mắt.",
+    "image": "/banner.jpg"
+  },
+  {
+    "name": "Hệ thống khảo sát trực tuyến",
+    "description": "Tạo và quản lý khảo sát nhanh chóng.",
+    "image": "/banner.jpg"
+  },
+  {
+    "name": "App lịch học sinh viên",
+    "description": "Quản lý lịch học, đăng ký học phần.",
+    "image": "/banner.jpg"
+  }
+]

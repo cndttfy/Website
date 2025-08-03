@@ -1,20 +1,44 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { FaBuilding } from "react-icons/fa";
 
+interface Service {
+  id: number;
+  name: string;
+}
+
 const Footer: React.FC = () => {
+  const [services, setServices] = useState<Service[]>([]);
+
+  useEffect(() => {
+    fetch("/data/services.json")
+      .then((res) => res.json())
+      .then((data: Service[]) => setServices(data))
+      .catch((err) => console.error("Failed to fetch services:", err));
+  }, []);
+
+  const MAX_VISIBLE = 4;
+  const visibleServices = services.slice(0, MAX_VISIBLE);
+  const hasMore = services.length > MAX_VISIBLE;
+
   return (
     <footer className="bg-[#1c3b99] text-white px-4 sm:px-6 lg:px-8 py-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-        
         {/* Cột 1: Logo + mô tả */}
         <div>
-          <div className="flex items-center gap-2 text-orange-400 text-xl font-bold">
-            <FaBuilding className="text-2xl" />
-            <span>TFY</span>
+          <div className="hidden lg:flex lg:w-2/12">
+            <a href="/" className="flex items-center">
+              <img
+                className="h-15 w-auto rounded-full"
+                style={{ boxShadow: "0 4px 10px var(--blue-color)" }}
+                src="/logo.png"
+                alt="TFY Logo"
+              />
+            </a>
           </div>
-          <p className="text-sm mt-2">Cơ Khí – Inox – Nhà Xưởng</p>
-          <p className="text-sm text-gray-200 mt-1">
-            CKXDPHP – Giải pháp xây dựng & cơ khí chuyên nghiệp
+          <p className="text-sm text-gray-200 mt-4">
+            CKXDPHP – Giải pháp công nghệ & đào tạo chuyên nghiệp
           </p>
         </div>
 
@@ -22,28 +46,57 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="font-semibold mb-4 text-white">Liên kết nhanh</h4>
           <ul className="space-y-2 text-sm text-gray-200">
-            <li><a href="/" className="hover:text-orange-400 transition">Trang chủ</a></li>
-            <li><a href="/services" className="hover:text-orange-400 transition">Dịch vụ</a></li>
-            <li><a href="/about" className="hover:text-orange-400 transition">Giới thiệu</a></li>
-            <li><a href="/contact" className="hover:text-orange-400 transition">Liên hệ</a></li>
+            <li>
+              <a href="/" className="hover:text-orange-400 transition">
+                Trang chủ
+              </a>
+            </li>
+            <li>
+              <a href="/services" className="hover:text-orange-400 transition">
+                Dịch vụ
+              </a>
+            </li>
+            <li>
+              <a href="/about" className="hover:text-orange-400 transition">
+                Giới thiệu
+              </a>
+            </li>
+            <li>
+              <a href="/contact" className="hover:text-orange-400 transition">
+                Liên hệ
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* Cột 3: Dịch vụ */}
+        {/* Cột 3: Dịch vụ (fetch động) */}
         <div>
           <h4 className="font-semibold mb-4 text-white">Dịch vụ</h4>
           <ul className="space-y-2 text-sm text-gray-200">
-            <li><a href="#" className="hover:text-orange-400 transition">Xây dựng công nghiệp</a></li>
-            <li><a href="#" className="hover:text-orange-400 transition">Cơ khí chế tạo</a></li>
-            <li><a href="#" className="hover:text-orange-400 transition">Nhà xưởng</a></li>
-            <li><a href="#" className="hover:text-orange-400 transition">Gia công kim loại</a></li>
+            {visibleServices.map((service) => (
+              <li key={service.id}>
+                <a href="#Service" className="hover:text-orange-400 transition">
+                  {service.name}
+                </a>
+              </li>
+            ))}
+            {hasMore && (
+              <li>
+                <a
+                  href="#Service"
+                  className="text-orange-400 text-sm underline hover:text-white transition"
+                >
+                  Xem thêm...
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
 
       {/* Đường kẻ + Bản quyền */}
       <div className="border-t border-blue-600 mt-10 pt-4 text-center text-sm text-gray-300">
-        © 2024 CKXDPHP. Bảo lưu mọi quyền.
+        © {new Date().getFullYear()} TFY. Bảo lưu mọi quyền.
       </div>
     </footer>
   );
