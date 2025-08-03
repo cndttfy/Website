@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { Dialog } from "@headlessui/react";
 import { FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Group } from "three";
+import { useGLTF } from "@react-three/drei";
 import {
   FaCode,
   FaServer,
@@ -34,6 +37,7 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
+// Service data
 const services = [
   { icon: <FaCode />, name: "Lập trình máy vi tính" },
   {
@@ -81,6 +85,7 @@ const services = [
   { icon: <FaGlobe />, name: "Cung cấp SaaS, nền tảng dịch vụ qua Internet" },
 ];
 
+// Navigation
 const navigation = [
   { name: "DỊCH VỤ", href: "#", dropdown: true },
   { name: "DỰ ÁN NỔI BẬT", href: "#" },
@@ -88,6 +93,33 @@ const navigation = [
   { name: "VỀ CHÚNG TÔI", href: "#" },
 ];
 
+// 3D Robot model with mouse-follow rotation
+function RobotModel() {
+  const { scene } = useGLTF("/models/robot.glb");
+  const robotRef = useRef<Group>(null);
+
+  useFrame(({ mouse }) => {
+    if (robotRef.current) {
+      // Tính toán góc X (cúi/ngửa)
+      let xRot = -mouse.y * Math.PI * 0.3;
+
+      // Clamp giá trị góc X từ -0.3 đến 0.3
+      xRot = Math.max(-0.5, Math.min(0.5, xRot));
+
+      // Gán rotation
+      robotRef.current.rotation.y = mouse.x * Math.PI * 0.8;
+      robotRef.current.rotation.x = xRot;
+    }
+  });
+
+  return (
+    <group ref={robotRef} position={[0, -0.5, 0]}>
+      <primitive object={scene} scale={3} />
+    </group>
+  );
+}
+
+// Main layout
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -95,18 +127,18 @@ export default function Example() {
     <div id="topWrapper" className="text-white relative">
       {/* Header */}
       <header className="absolute inset-x-0 top-0 z-50">
-        <nav
-          className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-          aria-label="Global"
-        >
-          {/* Logo */}
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">
             <a href="/" className="flex items-center">
-              <img className="h-15 w-auto" src="/logo.png" alt="TFY Logo" />
+              <img
+                className="h-20 w-auto rounded-full shadow-lg"
+                src="/logo.png"
+                alt="TFY Logo"
+              />
             </a>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Hamburger */}
           <div className="flex lg:hidden">
             <button
               type="button"
@@ -117,7 +149,7 @@ export default function Example() {
             </button>
           </div>
 
-          {/* Navigation Center */}
+          {/* Navigation */}
           <div className="hidden lg:flex lg:gap-x-10">
             {navigation.map((item) =>
               item.dropdown ? (
@@ -135,9 +167,7 @@ export default function Example() {
                     leaveTo="opacity-0 translate-y-1"
                   >
                     <Popover.Panel className="absolute z-10 mt-3 w-80 max-h-96 overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black/5">
-                      <div
-                        className="py-2 overflow-y-auto"
-                      >
+                      <div className="py-2">
                         {services.map((item, index) => (
                           <a
                             key={index}
@@ -146,20 +176,20 @@ export default function Example() {
                               index < services.length - 1 ? "border-b" : ""
                             }`}
                             style={{
-                              color: "var(--black-color)", 
+                              color: "var(--black-color)",
                             }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.color =
-                                "var(--orange-color)";
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.color =
-                                "var(--black-color)";
-                            }}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.color =
+                                "var(--orange-color)")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.color =
+                                "var(--black-color)")
+                            }
                           >
                             <span
                               className="text-base"
-                              style={{ color: "var(--blue-color)" }} 
+                              style={{ color: "var(--blue-color)" }}
                             >
                               {item.icon}
                             </span>
@@ -174,7 +204,7 @@ export default function Example() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-semibold leading-6 text-white hover:text-indigo-300"
+                  className="text-sm font-semibold text-white hover:text-indigo-300"
                 >
                   {item.name}
                 </a>
@@ -182,7 +212,7 @@ export default function Example() {
             )}
           </div>
 
-          {/* CTA & Log In */}
+          {/* Language toggle */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
             VN | EN
           </div>
@@ -232,12 +262,10 @@ export default function Example() {
       </header>
 
       {/* Hero Section */}
-      <main className="relative isolate pt-36 pb-28 px-6 lg:px-8">
+      <main className="relative isolate pt-36 pb-20 px-6 lg:px-8">
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Text */}
           <div>
-            <p className="text-sm font-medium tracking-wide uppercase text-white/70 mb-4">
-              CÔNG TY TNHH CÔNG NGHỆ & ĐÀO TẠO TFY
-            </p>
             <h1 className="slogan text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
               TREND FOR YOU
             </h1>
@@ -273,13 +301,14 @@ export default function Example() {
               </Button>
             </div>
           </div>
-          <div className="hidden lg:flex justify-center items-center">
-            <img
-              src="/robot.png"
-              alt="Rocket Bot"
-              style={{ width: "15vw" }}
-              className="max-w-full"
-            />
+
+          {/* 3D Robot */}
+          <div className="h-[450px] lg:h-[550px] w-full flex justify-center items-center">
+            <Canvas camera={{ position: [0, 0, 2.5], fov: 35 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[2, 2, 2]} />
+              <RobotModel />
+            </Canvas>
           </div>
         </div>
       </main>

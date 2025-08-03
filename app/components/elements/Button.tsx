@@ -4,6 +4,7 @@ type ButtonProps = {
   text?: string;
   iconClass?: string;
   onClick?: () => void;
+  disabled?: boolean;
   children?: React.ReactNode;
   style?: React.CSSProperties | string;
 };
@@ -13,6 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   iconClass,
   onClick,
   children,
+  disabled = false,
 }) => {
   return (
     <>
