@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import type { User } from "firebase/auth";
+import { auth } from "../assets/js/firebase"; // 🔑 sử dụng app đã khởi tạo
+
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Service from "../components/Service";
@@ -9,8 +13,19 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import AssistantWidget from "../components/AssistantWidget";
+import Auth from "../components/Auth";
 
 export default function Home() {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -23,6 +38,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <AssistantWidget />
+      {!user && <Auth />}
     </div>
   );
 }

@@ -20,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
     <>
       <style>{`
         .custom-button {
+          display: flex;
           font-family: inherit;
           font-size: 18px;
           background: linear-gradient(to bottom, var(--lightblue-color), var(--blue-color));
@@ -76,7 +77,7 @@ const Button: React.FC<ButtonProps> = ({
         }
       `}</style>
 
-      <button className="custom-button" onClick={onClick}>
+      <button className="custom-button flex" onClick={onClick}>
         {iconClass && (
           <div className="icon-wrapper">
             <i className={iconClass}></i>
