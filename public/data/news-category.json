@@ -1,0 +1,68 @@
+[
+  {
+    "id": "thoi-su",
+    "name": "Thời sự",
+    "description": "Tin tức thời sự trong nước và quốc tế.",
+    "created_at": "2025-08-01T08:00:00"
+  },
+  {
+    "id": "kinh-te",
+    "name": "Kinh tế",
+    "description": "Cập nhật thông tin thị trường và kinh tế.",
+    "created_at": "2025-08-01T08:01:00"
+  },
+  {
+    "id": "giao-duc",
+    "name": "Giáo dục",
+    "description": "Tin tức về ngành giáo dục và đào tạo.",
+    "created_at": "2025-08-01T08:02:00"
+  },
+  {
+    "id": "the-thao",
+    "name": "Thể thao",
+    "description": "Tin tức bóng đá, thể thao trong và ngoài nước.",
+    "created_at": "2025-08-01T08:03:00"
+  },
+  {
+    "id": "giai-tri",
+    "name": "Giải trí",
+    "description": "Thông tin showbiz, điện ảnh, âm nhạc.",
+    "created_at": "2025-08-01T08:04:00"
+  },
+  {
+    "id": "cong-nghe",
+    "name": "Công nghệ",
+    "description": "Xu hướng công nghệ mới, đánh giá sản phẩm.",
+    "created_at": "2025-08-01T08:05:00"
+  },
+  {
+    "id": "suc-khoe",
+    "name": "Sức khỏe",
+    "description": "Tin y tế, mẹo sống khỏe và dinh dưỡng.",
+    "created_at": "2025-08-01T08:06:00"
+  },
+  {
+    "id": "du-lich",
+    "name": "Du lịch",
+    "description": "Khám phá địa điểm du lịch trong và ngoài nước.",
+    "created_at": "2025-08-01T08:07:00"
+  },
+  {
+    "id": "phap-luat",
+    "name": "Pháp luật",
+    "description": "Tin tức pháp luật, vụ án, an ninh trật tự.",
+    "created_at": "2025-08-01T08:08:00"
+  },
+  {
+    "id": "tam-su",
+    "name": "Tâm sự",
+    "description": "Chia sẻ cảm xúc, câu chuyện cá nhân.",
+    "created_at": "2025-08-01T08:09:00"
+  },
+  {
+    "id": "seo",
+    "name": "SEO",
+    "description": "Chia sẻ cảm xúc, câu chuyện cá nhân.",
+    "created_at": "2025-08-01T08:09:00"
+  }
+]

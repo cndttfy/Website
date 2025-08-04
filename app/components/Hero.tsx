@@ -4,29 +4,42 @@ import React, { useState, useEffect, useRef } from "react";
 import "../assets/css/Hero.css";
 import Button from "./Button";
 
-const images = ["/banner.jpg", "/banner.jpg", "/banner.jpg"];
+interface Banner {
+  id: string;
+  img: string;
+  url: string;
+  event: string;
+}
 
 export default function Hero() {
+  const [banners, setBanners] = useState<Banner[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startX, setStartX] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Fetch JSON
+    fetch("/data/banners.json")
+      .then((res) => res.json())
+      .then((data) => setBanners(data))
+      .catch((err) => console.error("Lỗi khi tải banner:", err));
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(goToNext, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [banners]);
 
   const goToPrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? banners.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
   };
 
-  // Swipe / Drag Logic
   const handleTouchStart = (e: React.TouchEvent) => {
     setStartX(e.touches[0].clientX);
   };
@@ -36,8 +49,8 @@ export default function Hero() {
     const endX = e.changedTouches[0].clientX;
     const diff = startX - endX;
 
-    if (diff > 50) goToNext(); // Swipe left
-    else if (diff < -50) goToPrev(); // Swipe right
+    if (diff > 50) goToNext();
+    else if (diff < -50) goToPrev();
 
     setStartX(null);
   };
@@ -51,8 +64,8 @@ export default function Hero() {
     const endX = e.clientX;
     const diff = startX - endX;
 
-    if (diff > 50) goToNext(); // Drag left
-    else if (diff < -50) goToPrev(); // Drag right
+    if (diff > 50) goToNext();
+    else if (diff < -50) goToPrev();
 
     setStartX(null);
   };
@@ -70,27 +83,33 @@ export default function Hero() {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
       >
-        {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`banner ${index + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
-            draggable={false}
-          />
+        {banners.map((banner, index) => (
+          <a
+            key={banner.id}
+            href={banner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={banner.img}
+              alt={banner.event}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                index === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
+              draggable={false}
+            />
+          </a>
         ))}
 
-        {/* Navigation Buttons - bottom left */}
+        {/* Navigation Buttons */}
         <div className="absolute bottom-4 left-4 flex gap-3 z-10">
           <Button onClick={goToPrev}>◀</Button>
           <Button onClick={goToNext}>▶</Button>
         </div>
 
-        {/* Dots - bottom right */}
+        {/* Dots */}
         <div className="absolute bottom-4 right-4 flex gap-2 z-10">
-          {images.map((_, index) => (
+          {banners.map((_, index) => (
             <div
               key={index}
               onClick={() => setCurrentIndex(index)}

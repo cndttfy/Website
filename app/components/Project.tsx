@@ -47,22 +47,23 @@ const Project: React.FC = () => {
       <h1 className="title text-center mb-6">DỰ ÁN</h1>
 
       {/* VIDEO */}
-      <div className="flex justify-center mb-6">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/FcblTrtvRJ8"
-          title="Giới thiệu dự án"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="rounded-xl w-full max-w-2xl"
-        ></iframe>
+      <div className="flex justify-center mb-6 px-4">
+        <div className="w-full max-w-4xl aspect-video">
+          <iframe
+            src="https://www.youtube.com/embed/HhcTaxixdSI?list=RDHhcTaxixdSI"
+            title="Phép Màu (Đàn Cá Gỗ OST) - MAYDAYs ft. Minh Tốc | Official Lyric Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="w-full h-full rounded-xl"
+          ></iframe>
+        </div>
       </div>
 
       {/* 3 CỘT DỰ ÁN */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
         {displayedProjects.map((project, index) => (
-          <div key={index} className="border rounded-xl shadow-md overflow-hidden">
+          <div key={index} className="rounded-xl shadow-md overflow-hidden">
             <img
               src={project.image}
               alt={project.name}

@@ -27,7 +27,7 @@ header .menu a,
 header .menu button {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--blue-color);
+  color: var(--green-color);
   position: relative;
   outline-color: var(--orange-color);
   transition:

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "banner",
+    "img": "/banner.jpg",
+    "url": "https://example.com/event1",
+    "event": "Ra mắt sản phẩm mới"
+  },
+  {
+    "id": "banner-2",
+    "img": "/banner2.jpg",
+    "url": "https://example.com/event2",
+    "event": "Khuyến mãi tháng 8"
+  },
+  {
+    "id": "banner-3",
+    "img": "/banner3.jpg",
+    "url": "https://example.com/event3",
+    "event": "Sự kiện livestream trực tiếp"
+  },
+  {
+    "id": "banner-4",
+    "img": "/banner3.jpg",
+    "url": "https://example.com/event3",
+    "event": "Sự kiện livestream trực tiếp"
+  }
+]
