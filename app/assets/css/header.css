@@ -92,10 +92,6 @@ header .popover-panel a:hover {
   transform: translateX(4px);
 }
 
-/* header .popover-panel .text-base {
-  color: var(--blue-color);
-} */
-
 /* Mobile menu */
 .mobile-menu {
   background-color: #032d66;
@@ -147,7 +143,7 @@ header .popover-panel a:hover {
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
-  color: var(--blue-color);
+  color: var(--green-color);
   font-size: 0.875rem;
   font-weight: 500;
   transition: color 0.3s ease;

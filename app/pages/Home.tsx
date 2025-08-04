@@ -38,7 +38,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <AssistantWidget />
-      {!user && <Auth />}
+      {/* {!user && <Auth />} */}
     </div>
   );
 }

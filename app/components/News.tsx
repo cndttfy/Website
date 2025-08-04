@@ -127,7 +127,9 @@ const News: React.FC = () => {
 
         {/* RIGHT: Recent News */}
         <div className="md:col-span-3">
-          <h2 className="text-lg text-[var(--red-color)] font-bold mb-4">BÀI VIẾT MỚI NHẤT</h2>
+          <h2 className="text-center lg:text-left text-lg text-[var(--red-color)] font-bold mb-4">
+            BÀI VIẾT MỚI NHẤT
+          </h2>
           <ul className="space-y-4">
             {recentNews.map((item, index) => (
               <a
@@ -148,7 +150,9 @@ const News: React.FC = () => {
                   className="w-20 h-14 object-cover rounded-md"
                 />
                 <div className="flex-1">
-                  <p className="font-medium text-[var(--black-color)] text-sm">{item.title}</p>
+                  <p className="font-medium text-[var(--black-color)] text-sm">
+                    {item.title}
+                  </p>
                   <p className="text-xs text-gray-500">
                     {new Date(item.created_at).toLocaleDateString("vi-VN")}
                   </p>

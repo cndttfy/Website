@@ -73,7 +73,7 @@ export default function Hero() {
   return (
     <main
       id="Hero"
-      className="relative h-[600px] mt-20 w-full flex items-center justify-center overflow-hidden p-6"
+      className="relative w-full aspect-[16/9] mt-20 flex items-center justify-center overflow-auto p-6"
     >
       <div
         ref={containerRef}

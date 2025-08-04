@@ -51,7 +51,7 @@ const Service: React.FC = () => {
   return (
     <>
       {/* 3D CARD */}
-      <div className="flex justify-center mb-50 items-center h-[150px]">
+      <div className="hidden md:flex justify-center mb-50 items-center h-[100px]">
         <div className="card-3d hidden sm:block">
           {services.map((service) => (
             <div key={service.id} className="card-3d-item">
@@ -67,7 +67,7 @@ const Service: React.FC = () => {
       </div>
 
       {/* DỊCH VỤ */}
-      <section id="Service" className="">
+      <section id="Service" className="mt-10">
         <h1 className="title">DỊCH VỤ</h1>
 
         <div className="card-normal grid grid-cols-2 lg:grid-cols-4 gap-2 p-4">
