@@ -70,18 +70,18 @@ const Service: React.FC = () => {
       <section id="Service" className="mt-10">
         <h1 className="title">DỊCH VỤ</h1>
 
-        <div className="card-normal grid grid-cols-2 lg:grid-cols-4 gap-2 p-4">
+        <div className="card-normal grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
           {displayedServices.map((service) => (
-            <div key={service.id} className="e-card playing">
-              <div className="image" />
+            <div key={service.id} className="e-card playing w-full">
+              <div className="image aspect-square bg-gray-200 w-full" />
               <div className="wave" />
               <div className="wave" />
               <div className="wave" />
-              <div className="infotop text-center">
+              <div className="infotop text-center p-2">
                 <div className="flex justify-center text-3xl mb-2">
                   {renderIcon(service.icon)}
                 </div>
-                <p className="text-sm font-semibold p-4">{service.name}</p>
+                <p className="text-sm font-semibold">{service.name}</p>
               </div>
             </div>
           ))}

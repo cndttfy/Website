@@ -6,7 +6,11 @@ import Button from "./Button";
 
 interface Banner {
   id: string;
-  img: string;
+  img: {
+    desktop: string;
+    tablet: string;
+    mobile: string;
+  };
   url: string;
   event: string;
 }
@@ -15,16 +19,26 @@ export default function Hero() {
   const [banners, setBanners] = useState<Banner[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startX, setStartX] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Cập nhật kích thước màn hình
   useEffect(() => {
-    // Fetch JSON
+    const updateWidth = () => setWindowWidth(window.innerWidth);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  // Lấy dữ liệu banner
+  useEffect(() => {
     fetch("/data/banners.json")
       .then((res) => res.json())
       .then((data) => setBanners(data))
       .catch((err) => console.error("Lỗi khi tải banner:", err));
   }, []);
 
+  // Tự động chuyển banner
   useEffect(() => {
     const interval = setInterval(goToNext, 5000);
     return () => clearInterval(interval);
@@ -48,10 +62,8 @@ export default function Hero() {
     if (startX === null) return;
     const endX = e.changedTouches[0].clientX;
     const diff = startX - endX;
-
     if (diff > 50) goToNext();
     else if (diff < -50) goToPrev();
-
     setStartX(null);
   };
 
@@ -63,17 +75,21 @@ export default function Hero() {
     if (startX === null) return;
     const endX = e.clientX;
     const diff = startX - endX;
-
     if (diff > 50) goToNext();
     else if (diff < -50) goToPrev();
-
     setStartX(null);
+  };
+
+  const getResponsiveImage = (banner: Banner): string => {
+    if (windowWidth < 640) return banner.img.mobile; // mobile
+    if (windowWidth < 1024) return banner.img.tablet; // tablet
+    return banner.img.desktop; // desktop
   };
 
   return (
     <main
       id="Hero"
-      className="relative w-full aspect-[16/9] mt-20 flex items-center justify-center overflow-auto p-6"
+      className="relative w-full aspect-square sm:aspect-square lg:aspect-[16/9] mt-20 flex items-center justify-center overflow-auto p-6"
     >
       <div
         ref={containerRef}
@@ -91,7 +107,7 @@ export default function Hero() {
             rel="noopener noreferrer"
           >
             <img
-              src={banner.img}
+              src={getResponsiveImage(banner)}
               alt={banner.event}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
                 index === currentIndex ? "opacity-100" : "opacity-0"

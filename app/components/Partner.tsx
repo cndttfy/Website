@@ -5,8 +5,8 @@ import "../assets/css/Partner.css";
 
 interface PartnerType {
   name: string;
-  logo: string;
-  link: string;
+  logo_url: string;
+  website: string;
 }
 
 const Partner: React.FC = () => {
@@ -16,7 +16,7 @@ const Partner: React.FC = () => {
     fetch("/data/partners.json")
       .then((res) => res.json())
       .then((data: PartnerType[]) => {
-        setPartners([...data, ...data]); // nhân đôi để tạo hiệu ứng chạy liên tục
+        setPartners([...data, ...data]);
       })
       .catch((error) => console.error("Error loading partners:", error));
   }, []);
@@ -30,13 +30,13 @@ const Partner: React.FC = () => {
             {partners.map((partner, index) => (
               <a
                 key={index}
-                href={partner.link}
+                href={partner.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center min-w-[160px] h-[80px] p-4 hover:shadow transition"
               >
                 <img
-                  src={partner.logo}
+                  src={partner.logo_url}
                   alt={partner.name}
                   className="h-12 object-contain"
                 />

@@ -1,26 +1,22 @@
 [
   {
-    "id": "banner",
-    "img": "/banner.jpg",
-    "url": "https://example.com/event1",
-    "event": "Ra mắt sản phẩm mới"
+    "id": "1",
+    "img": {
+      "desktop": "https://img-zlr3.tv360.vn/game-tet/real/im1.0/93e218e5d004067fb4534de5b29ae260a9e8162f.jpg",
+      "tablet": "https://img-zlr3.tv360.vn/game-tet/real/im1.0/6f4f20791fd99dbf264365e57340e08c99b2f120.jpg",
+      "mobile": "https://img-zlr3.tv360.vn/game-tet/real/im1.0/6f4f20791fd99dbf264365e57340e08c99b2f120.jpg"
+    },
+    "url": "https://example.com",
+    "event": "Sự kiện 1"
   },
   {
-    "id": "banner-2",
-    "img": "/banner2.jpg",
-    "url": "https://example.com/event2",
-    "event": "Khuyến mãi tháng 8"
-  },
-  {
-    "id": "banner-3",
-    "img": "/banner3.jpg",
-    "url": "https://example.com/event3",
-    "event": "Sự kiện livestream trực tiếp"
-  },
-  {
-    "id": "banner-4",
-    "img": "/banner3.jpg",
-    "url": "https://example.com/event3",
-    "event": "Sự kiện livestream trực tiếp"
+    "id": "2",
+    "img": {
+      "desktop": "/images/banner-desktop-2.jpg",
+      "tablet": "/images/banner-tablet-2.jpg",
+      "mobile": "/images/banner-mobile-2.jpg"
+    },
+    "url": "https://example.com/2",
+    "event": "Sự kiện 2"
   }
 ]
