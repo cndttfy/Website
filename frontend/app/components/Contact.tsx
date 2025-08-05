@@ -16,6 +16,7 @@ interface Service {
 
 const Contact: React.FC = () => {
   const [services, setServices] = useState<Service[]>([]);
+  const [selectedService, setSelectedService] = useState<string>("");
 
   useEffect(() => {
     fetch("/data/services.json")
@@ -79,8 +80,14 @@ const Contact: React.FC = () => {
               placeholder="Số điện thoại"
               className="w-full border border-gray-300 rounded-md p-2"
             />
-            <select className="w-full border border-gray-300 rounded-md p-2">
-              <option disabled selected>Dịch vụ quan tâm</option>
+            <select
+              className="w-full border border-gray-300 rounded-md p-2"
+              defaultValue=""
+              onChange={(e) => setSelectedService(e.target.value)}
+            >
+              <option value="" disabled>
+                Dịch vụ quan tâm
+              </option>
               {services.map((service) => (
                 <option key={service.id} value={service.name}>
                   {service.name}

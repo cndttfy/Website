@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import type { User } from "firebase/auth";
-import { auth } from "../assets/js/firebase"; // 🔑 sử dụng app đã khởi tạo
 
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -16,16 +15,6 @@ import AssistantWidget from "../components/AssistantWidget";
 import Auth from "../components/Auth";
 
 export default function Home() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
   return (
     <div>
       <Header />
