@@ -18,7 +18,7 @@ const Service: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    fetch("/data/services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((error) => console.error("Lỗi khi fetch services.json:", error));

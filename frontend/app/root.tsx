@@ -1,15 +1,15 @@
 import {
   isRouteErrorResponse,
   Links,
-  Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "react-router";
+} from "react-router-dom";
 
 import type { Route } from "./types/root";
 import "./app.css";
 
+// Cấu hình thẻ <link> cho Google Fonts
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -23,13 +23,16 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+// Layout chính của app
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
+        {/* Thay vì dùng <Meta />, viết thẳng thẻ meta và title */}
+        <title>My App</title>
+        <meta name="description" content="Ứng dụng dịch vụ của bạn" />
         <Links />
       </head>
       <body>
@@ -41,10 +44,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Component gốc của App (dùng trong RouterProvider)
 export default function App() {
   return <Outlet />;
 }
 
+// Xử lý lỗi toàn cục cho các route
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
@@ -56,7 +61,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       error.status === 404
         ? "The requested page could not be found."
         : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
+  } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
     stack = error.stack;
   }

@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
   const [selectedService, setSelectedService] = useState<string>("");
 
   useEffect(() => {
-    fetch("/data/services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data: Service[]) => setServices(data))
       .catch((err) => console.error("Failed to fetch services:", err));
